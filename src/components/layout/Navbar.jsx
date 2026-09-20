@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu as MenuIcon, MessageCircle } from 'lucide-react';
+import { Menu as MenuIcon } from 'lucide-react';
 import { restaurantInfo } from '../../data/restaurantInfo';
 import MobileDrawer from './MobileDrawer';
 import '../../styles/navbar.css';
@@ -7,51 +7,47 @@ import '../../styles/navbar.css';
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Menu', href: '#menu' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
-  const whatsAppUrl = `https://wa.me/${restaurantInfo.contact.whatsAppNumber}?text=${encodeURIComponent(
-    restaurantInfo.reservation.defaultWhatsAppMessage
-  )}`;
-
   return (
     <>
       <header className="navbar">
         <div className="navbar-container">
-          {/* Brand / Logo */}
-          <a href="#home" className="navbar-brand">
+          {/* Mobile-only brand on the left */}
+          <a href="#home" className="navbar-brand navbar-brand-mobile" aria-label="Tony's Home">
             <span className="navbar-brand-title">{restaurantInfo.name}</span>
             <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav aria-label="Main Navigation">
+          {/* Desktop Left Navigation: Menu | About */}
+          <nav className="navbar-nav-left" aria-label="Primary Navigation Left">
             <ul className="navbar-links">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className="navbar-link">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#menu" className="navbar-link">Menu</a>
+              </li>
+              <li>
+                <a href="#about" className="navbar-link">About</a>
+              </li>
             </ul>
           </nav>
 
-          {/* Desktop Reservation CTA */}
-          <a
-            href={whatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="navbar-cta"
-          >
-            <MessageCircle size={16} />
-            <span>Reserve via WhatsApp</span>
-          </a>
+          {/* Desktop Center Logo / Brand Mark: Clickable to Home / Top */}
+          <div className="navbar-center-brand-wrapper">
+            <a href="#home" className="navbar-brand navbar-brand-desktop" aria-label="Tony's Home">
+              <span className="navbar-brand-title">{restaurantInfo.name}</span>
+              <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span>
+            </a>
+          </div>
+
+          {/* Desktop Right Navigation: Gallery | Contact */}
+          <nav className="navbar-nav-right" aria-label="Primary Navigation Right">
+            <ul className="navbar-links">
+              <li>
+                <a href="#gallery" className="navbar-link">Gallery</a>
+              </li>
+              <li>
+                <a href="#contact" className="navbar-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
 
           {/* Mobile Hamburger Menu Button */}
           <button
@@ -66,7 +62,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Full-Screen Mobile Navigation Drawer */}
       <MobileDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}

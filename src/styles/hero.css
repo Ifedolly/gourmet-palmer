@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Tony's Hero Styles (hero.css)
+   Minimalist Fine-Dining & Spacious Layout (Mobile-First)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Base Mobile Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  min-height: 85dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  background-image: 
+    linear-gradient(
+      to bottom,
+      rgba(18, 10, 6, 0.75) 0%,
+      rgba(23, 14, 8, 0.42) 50%,
+      rgba(18, 10, 6, 0.59) 100%
+    ),
+    url('/images/Restaurant.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary Brand Title */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 6.25rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.02;
+  color: var(--color-text-primary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtitle / Tagline */
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 4vw, 1.75rem);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  color: var(--color-gold-light);
+  letter-spacing: 0.16em;
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-3xl);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0.95;
+}
+
+/* Action CTAs */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 440px;
+  gap: var(--space-md);
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.875rem 1.75rem;
+  background-color: var(--color-gold);
+  color: var(--color-espresso-dark);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-btn-primary:hover {
+  background-color: var(--color-gold-light);
+  color: var(--color-espresso-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.875rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.hero-btn-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+  background-color: var(--color-gold-muted);
+}
+
+/* --------------------------------------------------------------------------
+   2. Progressive Enhancement: Tablet & Desktop (min-width: 640px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  .hero {
+    min-height: 90vh;
+    min-height: 90dvh;
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-4xl);
+  }
+
+  .hero-tagline {
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+    width: auto;
+    gap: var(--space-lg);
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: auto;
+    min-width: 210px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Progressive Enhancement: Large Desktop (min-width: 1100px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1100px) {
+  .hero {
+    min-height: 92vh;
+    min-height: 92dvh;
+  }
+
+  .hero-title {
+    font-size: 6.25rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-tagline {
+    font-size: 1.75rem;
+  }
+}

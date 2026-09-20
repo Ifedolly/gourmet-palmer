@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * Gourmet Palmer — Restaurant Information (restaurantInfo.js)
+ * Tony's — Restaurant Information (restaurantInfo.js)
  * ============================================================================
  * NOTE: All business-specific details (contact numbers, email, hours, social
  * links) are preserved from the legacy project or configured as placeholder data.
@@ -10,12 +10,12 @@
 
 export const restaurantInfo = {
   // Brand & Heritage
-  name: "Gourmet Palmer",
-  tagline: "...since 1987",
-  establishedYear: "1987",
+  name: "Tony's",
+  tagline: "...since 2001",
+  establishedYear: "2001",
   heroSubtitle: "Exquisite coastal dining with homegrown, farm-fresh ingredients in Malibu.",
   aboutText:
-    "Gourmet Palmer is an exquisite restaurant that offers only the best meals at affordable prices. With our homegrown and fresh hand-picked ingredients, our dishes never disappoint.",
+    "Tony's is an exquisite restaurant that offers only the best meals at affordable prices. With our homegrown and fresh hand-picked ingredients, our dishes never disappoint.",
 
   // Physical Location (Preserved from legacy project - treat as placeholder)
   address: {
@@ -33,7 +33,7 @@ export const restaurantInfo = {
     phone: "+2348023445572",
     phoneDisplay: "+234 802 344 5572",
     fax: "+234.230.110.2233",
-    email: "malibu@gourmetpalmer.com",
+    email: "malibu@tonys.com",
     whatsAppNumber: "2348023445572", // Numerical format for wa.me URL
   },
 
@@ -46,14 +46,14 @@ export const restaurantInfo = {
 
   // Social Media Links (Placeholder targets)
   socials: [
-    { name: "Instagram", url: "#", handle: "@gourmetpalmer" },
-    { name: "Facebook", url: "#", handle: "Gourmet Palmer Malibu" },
-    { name: "TripAdvisor", url: "#", handle: "Gourmet Palmer" },
+    { name: "Instagram", url: "#", handle: "@tonysmalibu" },
+    { name: "Facebook", url: "#", handle: "Tony's Malibu" },
+    { name: "TripAdvisor", url: "#", handle: "Tony's" },
   ],
 
   // Reservation CTA & Instructions
   reservation: {
     note: "Reservations are welcomed via WhatsApp or email. Walk-ins are accommodated based on daily seating availability.",
-    defaultWhatsAppMessage: "Hello Gourmet Palmer, I would like to inquire about reserving a table.",
+    defaultWhatsAppMessage: "Hello Tony's, I would like to inquire about reserving a table.",
   },
 };

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Gourmet Palmer Navbar & Drawer Styles (navbar.css)
+   Tony's Navbar & Full-Screen Drawer Styles (navbar.css)
    Mobile-First Implementation
    ========================================================================== */
 
@@ -11,7 +11,7 @@
   top: 0;
   z-index: var(--z-sticky);
   width: 100%;
-  background-color: rgba(23, 14, 8, 0.94);
+  background-color: rgba(23, 22, 8, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.25rem;
+  height: 4.5rem;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
   max-width: var(--container-max);
@@ -30,33 +30,42 @@
   margin-right: auto;
 }
 
-/* Brand Treatment */
+/* Brand / Logo Wordmark */
 .navbar-brand {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .navbar-brand-title {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
-  letter-spacing: var(--tracking-wide);
-  line-height: 1.1;
+  letter-spacing: var(--tracking-wider);
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
 .navbar-brand-tagline {
   font-family: var(--font-body);
-  font-size: var(--text-xs);
+  font-size: 0.6875rem;
   color: var(--color-gold);
   font-style: italic;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: var(--tracking-widest);
 }
 
-/* Mobile Hamburger Trigger */
+/* On mobile: desktop center logo and desktop navigation links are hidden */
+.navbar-brand-desktop,
+.navbar-nav-left,
+.navbar-center-brand-wrapper,
+.navbar-nav-right {
+  display: none;
+}
+
+/* Mobile Hamburger Menu Button */
 .navbar-menu-btn {
   display: flex;
   align-items: center;
@@ -78,24 +87,15 @@
   border-color: var(--color-gold);
 }
 
-/* Desktop navigation links & CTA hidden on mobile */
-.navbar-links {
-  display: none;
-}
-
-.navbar-cta {
-  display: none;
-}
-
 /* --------------------------------------------------------------------------
-   2. Mobile Drawer & Backdrop
+   2. Full-Screen Mobile Drawer & Backdrop
    -------------------------------------------------------------------------- */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: var(--z-drawer);
   opacity: 0;
   visibility: hidden;
@@ -107,45 +107,51 @@
   visibility: visible;
 }
 
+/* Occupies full viewport 100vw x 100vh / 100dvh */
 .drawer-panel {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 85%;
-  max-width: 360px;
-  background-color: var(--color-espresso);
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 100vw;
+  background-color: var(--color-espresso-dark);
   z-index: calc(var(--z-drawer) + 1);
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl) var(--space-lg);
-  transform: translateX(100%);
-  transition: transform var(--transition-smooth);
-  border-left: 1px solid var(--border-gold);
+  justify-content: space-between;
+  padding: var(--space-lg) var(--container-padding) var(--space-2xl) var(--container-padding);
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
-  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.5);
 }
 
 .drawer-panel.is-open {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .drawer-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-xl);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: var(--space-md);
+  width: 100%;
+}
+
+.drawer-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
 }
 
 .drawer-brand-title {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  font-size: var(--text-2xl);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: var(--tracking-wider);
 }
 
 .drawer-brand-tagline {
@@ -158,8 +164,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-gold);
   color: var(--color-text-secondary);
@@ -173,37 +179,53 @@
   color: var(--color-gold-light);
 }
 
+.drawer-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+  width: 100%;
+}
+
 .drawer-nav-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  align-items: center;
+  gap: var(--space-lg);
   list-style: none;
-  margin-bottom: var(--space-xl);
+  width: 100%;
+  text-align: center;
 }
 
 .drawer-nav-link {
-  display: block;
+  display: inline-block;
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: var(--weight-medium);
   color: var(--color-text-primary);
   text-decoration: none;
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  padding: var(--space-xs) 0;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .drawer-nav-link:hover {
   color: var(--color-gold-light);
-  transform: translateX(6px);
+  transform: scale(1.05);
 }
 
 .drawer-footer {
-  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: var(--space-lg);
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .drawer-cta {
@@ -212,6 +234,7 @@
   justify-content: center;
   gap: var(--space-xs);
   width: 100%;
+  min-height: 3.25rem;
   padding: 0.875rem 1rem;
   background-color: var(--color-gold);
   color: var(--color-espresso-dark);
@@ -238,29 +261,77 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. Progressive Enhancement: Tablet & Desktop (min-width: 860px)
+   3. Progressive Enhancement: Desktop Centered Navigation Layout (min-width: 900px)
+   Order: Menu | About | Logo | Gallery | Contact (grouped close to center)
    -------------------------------------------------------------------------- */
-@media (min-width: 860px) {
-  /* Hide mobile menu button */
+@media (min-width: 900px) {
+  /* Hide mobile-only elements */
+  .navbar-brand-mobile,
   .navbar-menu-btn {
     display: none;
   }
 
-  /* Display horizontal navigation links */
+  /* Centered flex layout bringing all navigation elements closer to the middle */
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 4.5vw, 3.75rem);
+    height: 5.25rem;
+  }
+
+  /* Left Navigation (Menu, About) */
+  .navbar-nav-left {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Center Brand / Logo */
+  .navbar-center-brand-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-brand-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-brand-desktop .navbar-brand-title {
+    font-size: 1.85rem;
+    letter-spacing: 0.22em;
+  }
+
+  .navbar-brand-desktop .navbar-brand-tagline {
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    margin-top: 1px;
+  }
+
+  /* Right Navigation (Gallery, Contact) */
+  .navbar-nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Nav Links styling */
   .navbar-links {
     display: flex;
     align-items: center;
-    gap: var(--space-xl);
+    gap: clamp(1.75rem, 3vw, 2.75rem);
     list-style: none;
   }
 
   .navbar-link {
     font-family: var(--font-body);
-    font-size: var(--text-sm);
+    font-size: 0.8125rem;
     font-weight: var(--weight-medium);
     color: var(--color-text-secondary);
     text-transform: uppercase;
-    letter-spacing: var(--tracking-wider);
+    letter-spacing: 0.15em;
     padding: var(--space-xs) 0;
     position: relative;
     text-decoration: none;
@@ -277,37 +348,12 @@
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 1.5px;
     background-color: var(--color-gold);
     transition: width var(--transition-base);
   }
 
   .navbar-link:hover::after {
     width: 100%;
-  }
-
-  /* Display header reservation CTA */
-  .navbar-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-family: var(--font-body);
-    font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wider);
-    color: var(--color-espresso-dark);
-    background-color: var(--color-gold);
-    padding: 0.625rem 1.25rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  }
-
-  .navbar-cta:hover {
-    background-color: var(--color-gold-light);
-    color: var(--color-espresso-dark);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
   }
 }

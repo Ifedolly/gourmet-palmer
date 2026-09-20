@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * Gourmet Palmer — Menu Data (menuData.js)
+ * Tony's — Menu Data (menuData.js)
  * ============================================================================
  * NOTE: Contains 36 curated menu items across 6 categories.
  * All 7 original legacy menu items are preserved and flagged with `isOriginal: true`.
@@ -312,8 +312,8 @@ export const menuItems = [
   // 6. Beverages & Cellar
   // --------------------------------------------------------------------------
   {
-    id: "palmer-old-fashioned",
-    name: "Palmer Reserve Old Fashioned",
+    id: "tonys-old-fashioned",
+    name: "Tony's Reserve Old Fashioned",
     description: "Small-batch bourbon, smoked demerara syrup, orange bitters, luxardo cherry.",
     price: "$20",
     category: "beverages",

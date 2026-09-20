@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * Gourmet Palmer — Gallery Data (galleryData.js)
+ * Tony's — Gallery Data (galleryData.js)
  * ============================================================================
  * NOTE: Structured data for gallery presentation (6-8 items).
  * Uses existing project imagery where available (`/images/Restaurant.jpg` and
@@ -13,13 +13,13 @@ export const galleryItems = [
   {
     id: "gallery-1",
     src: "/images/Restaurant.jpg",
-    alt: "Gourmet Palmer main dining room ambiance with ambient evening lighting",
+    alt: "Tony's main dining room ambiance with ambient evening lighting",
     caption: "The Dining Room — Warm and intimate coastal ambiance",
   },
   {
     id: "gallery-2",
     src: "/images/jason-leung-poI7DelFiVA-unsplash.jpg",
-    alt: "Gourmet Palmer restaurant interior featuring modern wooden seating and bar area",
+    alt: "Tony's restaurant interior featuring modern wooden seating and bar area",
     caption: "Interior Lounge — Crafted for memorable evenings",
   },
   {

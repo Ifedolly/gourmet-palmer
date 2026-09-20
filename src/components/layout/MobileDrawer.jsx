@@ -22,10 +22,10 @@ export default function MobileDrawer({ isOpen, onClose }) {
     }
   }, [isOpen, onClose]);
 
+  // Mobile navigation order: Menu -> About -> Gallery -> Contact
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
     { label: 'Menu', href: '#menu' },
+    { label: 'About', href: '#about' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -43,7 +43,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         aria-hidden="true"
       />
 
-      {/* Slide-out drawer panel */}
+      {/* Full-screen drawer panel */}
       <div
         className={`drawer-panel ${isOpen ? 'is-open' : ''}`}
         role="dialog"
@@ -52,21 +52,26 @@ export default function MobileDrawer({ isOpen, onClose }) {
         aria-hidden={!isOpen}
       >
         <div className="drawer-header">
-          <div>
-            <div className="drawer-brand-title">{restaurantInfo.name}</div>
-            <div className="drawer-brand-tagline">{restaurantInfo.tagline}</div>
-          </div>
+          <a
+            href="#home"
+            className="drawer-brand"
+            onClick={onClose}
+            aria-label="Tony's Home"
+          >
+            <span className="drawer-brand-title">{restaurantInfo.name}</span>
+            <span className="drawer-brand-tagline">{restaurantInfo.tagline}</span>
+          </a>
           <button
             type="button"
             className="drawer-close-btn"
             onClick={onClose}
             aria-label="Close menu"
           >
-            <X size={20} />
+            <X size={24} />
           </button>
         </div>
 
-        <nav aria-label="Mobile Navigation Links">
+        <nav className="drawer-nav" aria-label="Mobile Navigation Links">
           <ul className="drawer-nav-list">
             {navLinks.map((link) => (
               <li key={link.href}>

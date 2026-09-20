@@ -14,7 +14,7 @@ export default function WhatsAppFloatingBtn() {
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-floating-btn"
-      aria-label="Chat with Gourmet Palmer on WhatsApp"
+      aria-label="Chat with Tony's on WhatsApp"
       title="Reserve via WhatsApp"
     >
       <MessageCircle className="whatsapp-floating-btn-icon" />
