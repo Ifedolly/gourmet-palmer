@@ -1,11 +1,7 @@
-/* ==========================================================================
-   Tony's Navbar & Full-Screen Drawer Styles (navbar.css)
-   Mobile-First Implementation
-   ========================================================================== */
+/* Tony's Navbar & Full-Screen Drawer Styles (navbar.css)
+   Mobile-First Implementation */
 
-/* --------------------------------------------------------------------------
-   1. Base Mobile Navbar
-   -------------------------------------------------------------------------- */
+/* 1. Base Mobile Navbar */
 .navbar {
   position: sticky;
   top: 0;

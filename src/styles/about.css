@@ -1,13 +1,13 @@
-/* ==========================================================================
+/*
    Tony's About Section Styles (about.css)
    Mobile-First Implementation
-   ========================================================================== */
+    */
 
-/* --------------------------------------------------------------------------
-   1. Base Mobile About Section
-   -------------------------------------------------------------------------- */
+/*  1. Base Mobile About Section*/
 .about-section {
-  background-color: var(--color-bg-light);
+  background-color:#1a0d05;
+  background-color:#250603;
+
   color: var(--color-text-dark-secondary);
   padding-top: var(--space-3xl);
   padding-bottom: var(--space-3xl);
@@ -140,9 +140,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* --------------------------------------------------------------------------
-   2. Progressive Enhancement: Tablet (min-width: 640px)
-   -------------------------------------------------------------------------- */
+/*  2. Progressive Enhancement: Tablet (min-width: 640px)*/
 @media (min-width: 640px) {
   .about-pillars {
     grid-template-columns: repeat(3, 1fr);
@@ -154,9 +152,7 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   3. Progressive Enhancement: Desktop (min-width: 900px)
-   -------------------------------------------------------------------------- */
+/*  3. Progressive Enhancement: Desktop (min-width: 900px)*/
 @media (min-width: 900px) {
   .about-section {
     padding-top: var(--space-4xl);

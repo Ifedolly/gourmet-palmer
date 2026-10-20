@@ -56,7 +56,7 @@ export default function About() {
           {/* Ambiance Photography Column */}
           <div className="about-media">
             <img
-              src="/images/jason-leung-poI7DelFiVA-unsplash.jpg"
+              src="/images/romantic-table-setting.jpg"
               alt="Tony's dining ambiance and interior seating"
               className="about-img"
               loading="lazy"

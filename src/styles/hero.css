@@ -24,7 +24,7 @@
       rgba(23, 14, 8, 0.42) 50%,
       rgba(18, 10, 6, 0.59) 100%
     ),
-    url('/images/Restaurant.jpg');
+    url('/images/tonys_main_view.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@
   line-height: 1.02;
   color: var(--color-text-primary);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   margin: 0;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
