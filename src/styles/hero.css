@@ -1,11 +1,8 @@
-/* ==========================================================================
-   Tony's Hero Styles (hero.css)
-   Minimalist Fine-Dining & Spacious Layout (Mobile-First)
-   ========================================================================== */
+/* Tony's Hero Styles (hero.css)
+  Minimalist Fine-Dining & Spacious Layout (Mobile-First)*/
 
-/* --------------------------------------------------------------------------
-   1. Base Mobile Hero
-   -------------------------------------------------------------------------- */
+/* 1. Base Mobile Hero*/
+
 .hero {
   position: relative;
   min-height: 85vh;
@@ -58,6 +55,7 @@
   font-weight: var(--weight-medium);
   line-height: 1.02;
   color: var(--color-text-primary);
+  color: #886e4f;
   letter-spacing: 0.12em;
   text-transform: lowercase;
   margin: 0;
@@ -141,9 +139,8 @@
   background-color: var(--color-gold-muted);
 }
 
-/* --------------------------------------------------------------------------
-   2. Progressive Enhancement: Tablet & Desktop (min-width: 640px)
-   -------------------------------------------------------------------------- */
+/* 2. Progressive Enhancement: Tablet & Desktop (min-width: 640px)*/
+
 @media (min-width: 640px) {
   .hero {
     min-height: 90vh;
@@ -172,9 +169,8 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   3. Progressive Enhancement: Large Desktop (min-width: 1100px)
-   -------------------------------------------------------------------------- */
+/*3. Progressive Enhancement: Large Desktop (min-width: 1100px)*/
+
 @media (min-width: 1100px) {
   .hero {
     min-height: 92vh;
