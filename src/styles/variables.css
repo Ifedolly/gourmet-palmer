@@ -1,5 +1,14 @@
 /* Tony's Design Tokens (variables.css) */
 
+/* Custom Font: Holiday (brand wordmark) */
+@font-face {
+  font-family: 'Holiday';
+  src: url('/Holiday.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
    /* 1. Color Palette: Warm Gold & Amber (Accents) */
    --color-gold: #c59b27;
@@ -49,6 +58,7 @@
    --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
    --font-serif: Georgia, 'Times New Roman', serif;
    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+   --font-holiday: 'Holiday', 'Playfair Display', Georgia, serif;
 
    /* Font Sizes */
    --text-xs: 0.75rem;

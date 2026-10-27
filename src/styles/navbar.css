@@ -37,13 +37,13 @@
 }
 
 .navbar-brand-title {
-  font-family: var(--font-display);
+  font-family: var(--font-holiday);
   font-size: var(--text-2xl);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-wider);
   line-height: 1.05;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .navbar-brand-tagline {
@@ -143,7 +143,7 @@
 }
 
 .drawer-brand-title {
-  font-family: var(--font-display);
+  font-family: var(--font-holiday);
   font-size: var(--text-2xl);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
@@ -258,8 +258,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. Progressive Enhancement: Desktop Centered Navigation Layout (min-width: 900px)
-   Order: Menu | About | Logo | Gallery | Contact (grouped close to center)
+   3. Progressive Enhancement: Desktop Navigation Layout (min-width: 900px)
+   Uses a 5-column CSS Grid with display:contents on wrapper elements
+   so each navbar item occupies its own equal-width column, producing
+   truly balanced spacing:  Menu | About | Tony's | Gallery | Contact
    -------------------------------------------------------------------------- */
 @media (min-width: 900px) {
   /* Hide mobile-only elements */
@@ -268,26 +270,37 @@
     display: none;
   }
 
-  /* Centered flex layout bringing all navigation elements closer to the middle */
+  /* 5 equal columns — each navbar item centres within its column */
   .navbar-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     align-items: center;
-    justify-content: center;
-    gap: clamp(2rem, 4.5vw, 3.75rem);
+    max-width: 1400px;
     height: 5.25rem;
+    padding-left: clamp(3rem, 6vw, 6rem);
+    padding-right: clamp(3rem, 6vw, 6rem);
   }
 
-  /* Left Navigation (Menu, About) */
-  .navbar-nav-left {
-    display: flex;
-    align-items: center;
+  /* Make nav/ul/li wrappers transparent so <a> links become grid children */
+  .navbar-nav-left,
+  .navbar-nav-right {
+    display: contents;
   }
 
-  /* Center Brand / Logo */
+  .navbar-links {
+    display: contents;
+    list-style: none;
+  }
+
+  .navbar-links li {
+    display: contents;
+  }
+
+  /* Centre brand in its grid column (column 3) */
   .navbar-center-brand-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-self: center;
   }
 
   .navbar-brand-desktop {
@@ -298,7 +311,7 @@
   }
 
   .navbar-brand-desktop .navbar-brand-title {
-    font-size: 1.85rem;
+    font-size: 2.1rem;
     letter-spacing: 0.22em;
   }
 
@@ -308,21 +321,9 @@
     margin-top: 1px;
   }
 
-  /* Right Navigation (Gallery, Contact) */
-  .navbar-nav-right {
-    display: flex;
-    align-items: center;
-  }
-
-  /* Nav Links styling */
-  .navbar-links {
-    display: flex;
-    align-items: center;
-    gap: clamp(1.75rem, 3vw, 2.75rem);
-    list-style: none;
-  }
-
+  /* Nav link styling — each link centres within its own grid column */
   .navbar-link {
+    justify-self: center;
     font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: var(--weight-medium);
@@ -354,3 +355,4 @@
     width: 100%;
   }
 }
+
