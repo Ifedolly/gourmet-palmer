@@ -17,8 +17,8 @@ export default function Hero() {
           {/* Action CTA */}
           <div className="hero-actions">
             <a href="#menu" className="hero-btn-primary">
-              <Utensils size={17} />
-              <span>Explore Menu</span>
+              {/* <Utensils size={17} /> */}
+              <span>BOOK A TABLE</span>
             </a>
           </div>
         </div>

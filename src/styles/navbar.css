@@ -3,16 +3,30 @@
 
 /* 1. Base Mobile Navbar */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: var(--z-sticky);
   width: 100%;
-  background-color: rgba(23, 22, 8, 0.94);
-  background-color:#250603;
+  transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease;
+}
+
+/* Transparent state over Hero */
+.navbar.navbar-transparent {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Solid state when scrolled past Hero */
+.navbar.navbar-scrolled {
+  background-color: #250603;
+  background-color: rgba(37, 6, 3, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 .navbar-container {

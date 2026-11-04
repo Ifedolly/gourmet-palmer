@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu as MenuIcon } from 'lucide-react';
 import { restaurantInfo } from '../../data/restaurantInfo';
 import MobileDrawer from './MobileDrawer';
@@ -6,15 +6,36 @@ import '../../styles/navbar.css';
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById('home');
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        // Transition to solid once scrolled past the hero section (hero bottom reaches navbar height)
+        setIsScrolled(rect.bottom <= 80);
+      } else {
+        setIsScrolled(window.scrollY > 80);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <header className="navbar">
+      <header className={`navbar ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
         <div className="navbar-container">
           {/* Mobile-only brand on the left */}
           <a href="#home" className="navbar-brand navbar-brand-mobile" aria-label="Tony's Home">
             <span className="navbar-brand-title">{restaurantInfo.name}</span>
-            <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span>
+            {/* <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span> */}
           </a>
 
           {/* Desktop Left Navigation: Menu | About */}
@@ -33,7 +54,7 @@ export default function Navbar() {
           <div className="navbar-center-brand-wrapper">
             <a href="#home" className="navbar-brand navbar-brand-desktop" aria-label="Tony's Home">
               <span className="navbar-brand-title">{restaurantInfo.name}</span>
-              <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span>
+              {/* <span className="navbar-brand-tagline">{restaurantInfo.tagline}</span> */}
             </a>
           </div>
 

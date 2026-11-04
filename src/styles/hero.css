@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: var(--space-4xl);
+  padding-top: calc(4.5rem + var(--space-2xl));
   padding-bottom: var(--space-4xl);
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
@@ -50,7 +50,7 @@
 
 /* Primary Brand Title */
 .hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-holiday);
   font-size: clamp(3rem, 12vw, 6.25rem);
   font-weight: var(--weight-medium);
   line-height: 1.02;
@@ -100,7 +100,7 @@
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  border-radius: var(--radius-sm);
+  /* border-radius: var(--radius-sm); */
   text-decoration: none;
   transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -145,7 +145,7 @@
   .hero {
     min-height: 90vh;
     min-height: 90dvh;
-    padding-top: var(--space-4xl);
+    padding-top: calc(5.25rem + var(--space-3xl));
     padding-bottom: var(--space-4xl);
   }
 
